@@ -1,0 +1,45 @@
+{
+  "name": "cloudnative-pg-pulumi",
+  "version": "0.1.0",
+  "description": "Pulumi TypeScript bindings for CloudNativePG CRDs.",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=20.16.0"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "crds",
+    "dist",
+    "LICENSE.md",
+    "README.md",
+    "crd2pulumi.config.mjs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "generate:crds": "node ../crd2pulumi-package-tools/generate.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/types/index.js",
+      "import": "./dist/types/index.js"
+    }
+  },
+  "peerDependencies": {
+    "@pulumi/kubernetes": ">=4.18.0 <6",
+    "@pulumi/pulumi": ">=3.144.0 <5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "typescript": "^5.9.3"
+  }
+}
