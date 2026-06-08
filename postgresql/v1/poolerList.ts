@@ -7,33 +7,33 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * A Backup resource is a request for a PostgreSQL backup by the user.
+ * PoolerList is a list of Pooler
  */
-export class Backup extends pulumi.CustomResource {
+export class PoolerList extends pulumi.CustomResource {
     /**
-     * Get an existing Backup resource's state with the given name, ID, and optional extra
+     * Get an existing PoolerList resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backup {
-        return new Backup(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PoolerList {
+        return new PoolerList(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'kubernetes:postgresql.cnpg.io/v1:Backup';
+    public static readonly __pulumiType = 'kubernetes:postgresql.cnpg.io/v1:PoolerList';
 
     /**
-     * Returns true if the given object is an instance of Backup.  This is designed to work even
+     * Returns true if the given object is an instance of PoolerList.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Backup {
+    public static isInstance(obj: any): obj is PoolerList {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Backup.__pulumiType;
+        return obj['__pulumiType'] === PoolerList.__pulumiType;
     }
 
     /**
@@ -41,59 +41,65 @@ export class Backup extends pulumi.CustomResource {
      */
     declare public readonly apiVersion: pulumi.Output<"postgresql.cnpg.io/v1">;
     /**
+     * List of poolers. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
+     */
+    declare public readonly items: pulumi.Output<outputs.postgresql.v1.Pooler[]>;
+    /**
      * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    declare public readonly kind: pulumi.Output<"Backup">;
+    declare public readonly kind: pulumi.Output<"PoolerList">;
     /**
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    declare public readonly metadata: pulumi.Output<outputs.meta.v1.ObjectMeta>;
-    declare public readonly spec: pulumi.Output<outputs.postgresql.v1.BackupSpec>;
-    declare public /*out*/ readonly status: pulumi.Output<outputs.postgresql.v1.BackupStatus>;
+    declare public readonly metadata: pulumi.Output<outputs.meta.v1.ListMeta>;
 
     /**
-     * Create a Backup resource with the given unique name, arguments, and options.
+     * Create a PoolerList resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BackupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PoolerListArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.items === undefined && !opts.urn) {
+                throw new Error("Missing required property 'items'");
+            }
             resourceInputs["apiVersion"] = "postgresql.cnpg.io/v1";
-            resourceInputs["kind"] = "Backup";
+            resourceInputs["items"] = args?.items;
+            resourceInputs["kind"] = "PoolerList";
             resourceInputs["metadata"] = args?.metadata;
-            resourceInputs["spec"] = args?.spec;
-            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["items"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
-            resourceInputs["spec"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Backup.__pulumiType, name, resourceInputs, opts);
+        super(PoolerList.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Backup resource.
+ * The set of arguments for constructing a PoolerList resource.
  */
-export interface BackupArgs {
+export interface PoolerListArgs {
     /**
      * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      */
     apiVersion?: pulumi.Input<"postgresql.cnpg.io/v1" | undefined>;
     /**
+     * List of poolers. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
+     */
+    items: pulumi.Input<pulumi.Input<inputs.postgresql.v1.Pooler>[]>;
+    /**
      * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    kind?: pulumi.Input<"Backup" | undefined>;
+    kind?: pulumi.Input<"PoolerList" | undefined>;
     /**
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    metadata?: pulumi.Input<inputs.meta.v1.ObjectMeta | undefined>;
-    spec?: pulumi.Input<inputs.postgresql.v1.BackupSpec | undefined>;
+    metadata?: pulumi.Input<inputs.meta.v1.ListMeta | undefined>;
 }

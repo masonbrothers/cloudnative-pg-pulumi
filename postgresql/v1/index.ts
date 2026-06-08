@@ -10,6 +10,16 @@ export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
 utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
 
+export { BackupListArgs } from "./backupList";
+export type BackupList = import("./backupList").BackupList;
+export const BackupList: typeof import("./backupList").BackupList = null as any;
+utilities.lazyLoad(exports, ["BackupList"], () => require("./backupList"));
+
+export { BackupPatchArgs } from "./backupPatch";
+export type BackupPatch = import("./backupPatch").BackupPatch;
+export const BackupPatch: typeof import("./backupPatch").BackupPatch = null as any;
+utilities.lazyLoad(exports, ["BackupPatch"], () => require("./backupPatch"));
+
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -20,40 +30,130 @@ export type ClusterImageCatalog = import("./clusterImageCatalog").ClusterImageCa
 export const ClusterImageCatalog: typeof import("./clusterImageCatalog").ClusterImageCatalog = null as any;
 utilities.lazyLoad(exports, ["ClusterImageCatalog"], () => require("./clusterImageCatalog"));
 
+export { ClusterImageCatalogListArgs } from "./clusterImageCatalogList";
+export type ClusterImageCatalogList = import("./clusterImageCatalogList").ClusterImageCatalogList;
+export const ClusterImageCatalogList: typeof import("./clusterImageCatalogList").ClusterImageCatalogList = null as any;
+utilities.lazyLoad(exports, ["ClusterImageCatalogList"], () => require("./clusterImageCatalogList"));
+
+export { ClusterImageCatalogPatchArgs } from "./clusterImageCatalogPatch";
+export type ClusterImageCatalogPatch = import("./clusterImageCatalogPatch").ClusterImageCatalogPatch;
+export const ClusterImageCatalogPatch: typeof import("./clusterImageCatalogPatch").ClusterImageCatalogPatch = null as any;
+utilities.lazyLoad(exports, ["ClusterImageCatalogPatch"], () => require("./clusterImageCatalogPatch"));
+
+export { ClusterListArgs } from "./clusterList";
+export type ClusterList = import("./clusterList").ClusterList;
+export const ClusterList: typeof import("./clusterList").ClusterList = null as any;
+utilities.lazyLoad(exports, ["ClusterList"], () => require("./clusterList"));
+
+export { ClusterPatchArgs } from "./clusterPatch";
+export type ClusterPatch = import("./clusterPatch").ClusterPatch;
+export const ClusterPatch: typeof import("./clusterPatch").ClusterPatch = null as any;
+utilities.lazyLoad(exports, ["ClusterPatch"], () => require("./clusterPatch"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { DatabaseListArgs } from "./databaseList";
+export type DatabaseList = import("./databaseList").DatabaseList;
+export const DatabaseList: typeof import("./databaseList").DatabaseList = null as any;
+utilities.lazyLoad(exports, ["DatabaseList"], () => require("./databaseList"));
+
+export { DatabasePatchArgs } from "./databasePatch";
+export type DatabasePatch = import("./databasePatch").DatabasePatch;
+export const DatabasePatch: typeof import("./databasePatch").DatabasePatch = null as any;
+utilities.lazyLoad(exports, ["DatabasePatch"], () => require("./databasePatch"));
 
 export { FailoverQuorumArgs } from "./failoverQuorum";
 export type FailoverQuorum = import("./failoverQuorum").FailoverQuorum;
 export const FailoverQuorum: typeof import("./failoverQuorum").FailoverQuorum = null as any;
 utilities.lazyLoad(exports, ["FailoverQuorum"], () => require("./failoverQuorum"));
 
+export { FailoverQuorumListArgs } from "./failoverQuorumList";
+export type FailoverQuorumList = import("./failoverQuorumList").FailoverQuorumList;
+export const FailoverQuorumList: typeof import("./failoverQuorumList").FailoverQuorumList = null as any;
+utilities.lazyLoad(exports, ["FailoverQuorumList"], () => require("./failoverQuorumList"));
+
+export { FailoverQuorumPatchArgs } from "./failoverQuorumPatch";
+export type FailoverQuorumPatch = import("./failoverQuorumPatch").FailoverQuorumPatch;
+export const FailoverQuorumPatch: typeof import("./failoverQuorumPatch").FailoverQuorumPatch = null as any;
+utilities.lazyLoad(exports, ["FailoverQuorumPatch"], () => require("./failoverQuorumPatch"));
+
 export { ImageCatalogArgs } from "./imageCatalog";
 export type ImageCatalog = import("./imageCatalog").ImageCatalog;
 export const ImageCatalog: typeof import("./imageCatalog").ImageCatalog = null as any;
 utilities.lazyLoad(exports, ["ImageCatalog"], () => require("./imageCatalog"));
+
+export { ImageCatalogListArgs } from "./imageCatalogList";
+export type ImageCatalogList = import("./imageCatalogList").ImageCatalogList;
+export const ImageCatalogList: typeof import("./imageCatalogList").ImageCatalogList = null as any;
+utilities.lazyLoad(exports, ["ImageCatalogList"], () => require("./imageCatalogList"));
+
+export { ImageCatalogPatchArgs } from "./imageCatalogPatch";
+export type ImageCatalogPatch = import("./imageCatalogPatch").ImageCatalogPatch;
+export const ImageCatalogPatch: typeof import("./imageCatalogPatch").ImageCatalogPatch = null as any;
+utilities.lazyLoad(exports, ["ImageCatalogPatch"], () => require("./imageCatalogPatch"));
 
 export { PoolerArgs } from "./pooler";
 export type Pooler = import("./pooler").Pooler;
 export const Pooler: typeof import("./pooler").Pooler = null as any;
 utilities.lazyLoad(exports, ["Pooler"], () => require("./pooler"));
 
+export { PoolerListArgs } from "./poolerList";
+export type PoolerList = import("./poolerList").PoolerList;
+export const PoolerList: typeof import("./poolerList").PoolerList = null as any;
+utilities.lazyLoad(exports, ["PoolerList"], () => require("./poolerList"));
+
+export { PoolerPatchArgs } from "./poolerPatch";
+export type PoolerPatch = import("./poolerPatch").PoolerPatch;
+export const PoolerPatch: typeof import("./poolerPatch").PoolerPatch = null as any;
+utilities.lazyLoad(exports, ["PoolerPatch"], () => require("./poolerPatch"));
+
 export { PublicationArgs } from "./publication";
 export type Publication = import("./publication").Publication;
 export const Publication: typeof import("./publication").Publication = null as any;
 utilities.lazyLoad(exports, ["Publication"], () => require("./publication"));
+
+export { PublicationListArgs } from "./publicationList";
+export type PublicationList = import("./publicationList").PublicationList;
+export const PublicationList: typeof import("./publicationList").PublicationList = null as any;
+utilities.lazyLoad(exports, ["PublicationList"], () => require("./publicationList"));
+
+export { PublicationPatchArgs } from "./publicationPatch";
+export type PublicationPatch = import("./publicationPatch").PublicationPatch;
+export const PublicationPatch: typeof import("./publicationPatch").PublicationPatch = null as any;
+utilities.lazyLoad(exports, ["PublicationPatch"], () => require("./publicationPatch"));
 
 export { ScheduledBackupArgs } from "./scheduledBackup";
 export type ScheduledBackup = import("./scheduledBackup").ScheduledBackup;
 export const ScheduledBackup: typeof import("./scheduledBackup").ScheduledBackup = null as any;
 utilities.lazyLoad(exports, ["ScheduledBackup"], () => require("./scheduledBackup"));
 
+export { ScheduledBackupListArgs } from "./scheduledBackupList";
+export type ScheduledBackupList = import("./scheduledBackupList").ScheduledBackupList;
+export const ScheduledBackupList: typeof import("./scheduledBackupList").ScheduledBackupList = null as any;
+utilities.lazyLoad(exports, ["ScheduledBackupList"], () => require("./scheduledBackupList"));
+
+export { ScheduledBackupPatchArgs } from "./scheduledBackupPatch";
+export type ScheduledBackupPatch = import("./scheduledBackupPatch").ScheduledBackupPatch;
+export const ScheduledBackupPatch: typeof import("./scheduledBackupPatch").ScheduledBackupPatch = null as any;
+utilities.lazyLoad(exports, ["ScheduledBackupPatch"], () => require("./scheduledBackupPatch"));
+
 export { SubscriptionArgs } from "./subscription";
 export type Subscription = import("./subscription").Subscription;
 export const Subscription: typeof import("./subscription").Subscription = null as any;
 utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
+export { SubscriptionListArgs } from "./subscriptionList";
+export type SubscriptionList = import("./subscriptionList").SubscriptionList;
+export const SubscriptionList: typeof import("./subscriptionList").SubscriptionList = null as any;
+utilities.lazyLoad(exports, ["SubscriptionList"], () => require("./subscriptionList"));
+
+export { SubscriptionPatchArgs } from "./subscriptionPatch";
+export type SubscriptionPatch = import("./subscriptionPatch").SubscriptionPatch;
+export const SubscriptionPatch: typeof import("./subscriptionPatch").SubscriptionPatch = null as any;
+utilities.lazyLoad(exports, ["SubscriptionPatch"], () => require("./subscriptionPatch"));
 
 
 const _module = {
@@ -62,24 +162,64 @@ const _module = {
         switch (type) {
             case "kubernetes:postgresql.cnpg.io/v1:Backup":
                 return new Backup(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:BackupList":
+                return new BackupList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:BackupPatch":
+                return new BackupPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:ClusterImageCatalog":
                 return new ClusterImageCatalog(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ClusterImageCatalogList":
+                return new ClusterImageCatalogList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ClusterImageCatalogPatch":
+                return new ClusterImageCatalogPatch(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ClusterList":
+                return new ClusterList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ClusterPatch":
+                return new ClusterPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:DatabaseList":
+                return new DatabaseList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:DatabasePatch":
+                return new DatabasePatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:FailoverQuorum":
                 return new FailoverQuorum(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:FailoverQuorumList":
+                return new FailoverQuorumList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:FailoverQuorumPatch":
+                return new FailoverQuorumPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:ImageCatalog":
                 return new ImageCatalog(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ImageCatalogList":
+                return new ImageCatalogList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ImageCatalogPatch":
+                return new ImageCatalogPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:Pooler":
                 return new Pooler(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:PoolerList":
+                return new PoolerList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:PoolerPatch":
+                return new PoolerPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:Publication":
                 return new Publication(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:PublicationList":
+                return new PublicationList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:PublicationPatch":
+                return new PublicationPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:ScheduledBackup":
                 return new ScheduledBackup(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ScheduledBackupList":
+                return new ScheduledBackupList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:ScheduledBackupPatch":
+                return new ScheduledBackupPatch(name, <any>undefined, { urn })
             case "kubernetes:postgresql.cnpg.io/v1:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:SubscriptionList":
+                return new SubscriptionList(name, <any>undefined, { urn })
+            case "kubernetes:postgresql.cnpg.io/v1:SubscriptionPatch":
+                return new SubscriptionPatch(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

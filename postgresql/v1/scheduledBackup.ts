@@ -6,8 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-import {ObjectMeta} from "../../meta/v1";
-
 /**
  * ScheduledBackup is the Schema for the scheduledbackups API
  */
@@ -38,20 +36,20 @@ export class ScheduledBackup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledBackup.__pulumiType;
     }
 
-    public readonly apiVersion!: pulumi.Output<"postgresql.cnpg.io/v1" | undefined>;
-    public readonly kind!: pulumi.Output<"ScheduledBackup" | undefined>;
-    public readonly metadata!: pulumi.Output<ObjectMeta>;
     /**
-     * Specification of the desired behavior of the ScheduledBackup.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      */
-    public readonly spec!: pulumi.Output<outputs.postgresql.v1.ScheduledBackupSpec>;
+    declare public readonly apiVersion: pulumi.Output<"postgresql.cnpg.io/v1">;
     /**
-     * Most recently observed status of the ScheduledBackup. This data may not be up
-     * to date. Populated by the system. Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    public readonly status!: pulumi.Output<outputs.postgresql.v1.ScheduledBackupStatus | undefined>;
+    declare public readonly kind: pulumi.Output<"ScheduledBackup">;
+    /**
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
+    declare public readonly metadata: pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    declare public readonly spec: pulumi.Output<outputs.postgresql.v1.ScheduledBackupSpec>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.postgresql.v1.ScheduledBackupStatus>;
 
     /**
      * Create a ScheduledBackup resource with the given unique name, arguments, and options.
@@ -66,9 +64,9 @@ export class ScheduledBackup extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["apiVersion"] = "postgresql.cnpg.io/v1";
             resourceInputs["kind"] = "ScheduledBackup";
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["spec"] = args ? (args.spec ? pulumi.output(args.spec).apply(inputs.postgresql.v1.scheduledBackupSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["spec"] = args?.spec;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -85,18 +83,17 @@ export class ScheduledBackup extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledBackup resource.
  */
 export interface ScheduledBackupArgs {
-    apiVersion?: pulumi.Input<"postgresql.cnpg.io/v1">;
-    kind?: pulumi.Input<"ScheduledBackup">;
-    metadata?: pulumi.Input<ObjectMeta>;
     /**
-     * Specification of the desired behavior of the ScheduledBackup.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      */
-    spec?: pulumi.Input<inputs.postgresql.v1.ScheduledBackupSpecArgs>;
+    apiVersion?: pulumi.Input<"postgresql.cnpg.io/v1" | undefined>;
     /**
-     * Most recently observed status of the ScheduledBackup. This data may not be up
-     * to date. Populated by the system. Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
-    status?: pulumi.Input<inputs.postgresql.v1.ScheduledBackupStatusArgs>;
+    kind?: pulumi.Input<"ScheduledBackup" | undefined>;
+    /**
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
+    metadata?: pulumi.Input<inputs.meta.v1.ObjectMeta | undefined>;
+    spec?: pulumi.Input<inputs.postgresql.v1.ScheduledBackupSpec | undefined>;
 }

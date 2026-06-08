@@ -6,8 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-import {ObjectMeta} from "../../meta/v1";
-
 /**
  * ClusterImageCatalog is the Schema for the clusterimagecatalogs API
  */
@@ -38,14 +36,19 @@ export class ClusterImageCatalog extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterImageCatalog.__pulumiType;
     }
 
-    public readonly apiVersion!: pulumi.Output<"postgresql.cnpg.io/v1" | undefined>;
-    public readonly kind!: pulumi.Output<"ClusterImageCatalog" | undefined>;
-    public readonly metadata!: pulumi.Output<ObjectMeta>;
     /**
-     * Specification of the desired behavior of the ClusterImageCatalog.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      */
-    public readonly spec!: pulumi.Output<outputs.postgresql.v1.ClusterImageCatalogSpec>;
+    declare public readonly apiVersion: pulumi.Output<"postgresql.cnpg.io/v1">;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     */
+    declare public readonly kind: pulumi.Output<"ClusterImageCatalog">;
+    /**
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
+    declare public readonly metadata: pulumi.Output<outputs.meta.v1.ObjectMeta>;
+    declare public readonly spec: pulumi.Output<outputs.postgresql.v1.ClusterImageCatalogSpec>;
 
     /**
      * Create a ClusterImageCatalog resource with the given unique name, arguments, and options.
@@ -60,8 +63,8 @@ export class ClusterImageCatalog extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["apiVersion"] = "postgresql.cnpg.io/v1";
             resourceInputs["kind"] = "ClusterImageCatalog";
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["spec"] = args?.spec;
         } else {
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -77,12 +80,17 @@ export class ClusterImageCatalog extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterImageCatalog resource.
  */
 export interface ClusterImageCatalogArgs {
-    apiVersion?: pulumi.Input<"postgresql.cnpg.io/v1">;
-    kind?: pulumi.Input<"ClusterImageCatalog">;
-    metadata?: pulumi.Input<ObjectMeta>;
     /**
-     * Specification of the desired behavior of the ClusterImageCatalog.
-     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      */
-    spec?: pulumi.Input<inputs.postgresql.v1.ClusterImageCatalogSpecArgs>;
+    apiVersion?: pulumi.Input<"postgresql.cnpg.io/v1" | undefined>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     */
+    kind?: pulumi.Input<"ClusterImageCatalog" | undefined>;
+    /**
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
+    metadata?: pulumi.Input<inputs.meta.v1.ObjectMeta | undefined>;
+    spec?: pulumi.Input<inputs.postgresql.v1.ClusterImageCatalogSpec | undefined>;
 }
